@@ -1,0 +1,6 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "0d628ce757c1336a9456b10919766acc"
+build_time: [1549007160, 416129000]
+inputs:
+  "/Users/ringo_02/Desktop/Projects/Last-FM Albums/Last-FM Albums/ViewControllers/MainScreenViewController.swift": [9223372036, 854775807]
+  "/Users/ringo_02/Desktop/Projects/Last-FM Albums/Last-FM Albums/AppDelegate.swift": [9223372036, 854775807]

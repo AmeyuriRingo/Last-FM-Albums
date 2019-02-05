@@ -1,0 +1,6 @@
+framework module Pods_Last_FM_Albums {
+  umbrella header "Pods-Last-FM Albums-umbrella.h"
+
+  export *
+  module * { export * }
+}
