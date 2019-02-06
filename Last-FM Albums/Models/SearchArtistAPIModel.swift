@@ -39,12 +39,9 @@ class SearchArtistAPIModel: NSObject, NSCoding, Mappable {
     }
 }
 
-class Result: NSObject, NSCoding, Mappable {
+class Result: NSObject, Mappable {
     
     var artistmatches: Artistmatche?
-    var opensearchitemsPerPage: String?
-    var opensearchstartIndex: String?
-    var opensearchtotalResults: String?
     
     class func newInstance(map: Map) -> Mappable? {
         
@@ -58,16 +55,6 @@ class Result: NSObject, NSCoding, Mappable {
     func mapping(map: Map) {
         
         artistmatches <- map["artistmatches"]
-        opensearchitemsPerPage <- map["opensearch:itemsPerPage"]
-        opensearchstartIndex <- map["opensearch:startIndex"]
-        opensearchtotalResults <- map["opensearch:totalResults"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        opensearchitemsPerPage = aDecoder.decodeObject(forKey: "opensearch:itemsPerPage") as? String
-        opensearchstartIndex = aDecoder.decodeObject(forKey: "opensearch:startIndex") as? String
-        opensearchtotalResults = aDecoder.decodeObject(forKey: "opensearch:totalResults") as? String
     }
     
     @objc func encode(with aCoder: NSCoder) {
@@ -75,18 +62,6 @@ class Result: NSObject, NSCoding, Mappable {
         if artistmatches != nil {
             
             aCoder.encode(artistmatches, forKey: "artistmatches")
-        }
-        if opensearchitemsPerPage != nil {
-            
-            aCoder.encode(opensearchitemsPerPage, forKey: "opensearch:itemsPerPage")
-        }
-        if opensearchstartIndex != nil {
-            
-            aCoder.encode(opensearchstartIndex, forKey: "opensearch:startIndex")
-        }
-        if opensearchtotalResults != nil {
-            
-            aCoder.encode(opensearchtotalResults, forKey: "opensearch:totalResults")
         }
     }
 }
@@ -127,11 +102,7 @@ class Artistmatche: NSObject, NSCoding, Mappable {
 class Artist: NSObject, NSCoding, Mappable {
     
     var image: [Image]?
-    var listeners: String?
-    var mbid: String?
     var name: String?
-    var streamable: String?
-    var url: String?
     
     class func newInstance(map: Map) -> Mappable? {
         
@@ -145,21 +116,13 @@ class Artist: NSObject, NSCoding, Mappable {
     func mapping(map: Map) {
         
         image <- map["image"]
-        listeners <- map["listeners"]
-        mbid <- map["mbid"]
         name <- map["name"]
-        streamable <- map["streamable"]
-        url <- map["url"]
     }
     
     @objc required init(coder aDecoder: NSCoder) {
         
         image = aDecoder.decodeObject(forKey: "image") as? [Image]
-        listeners = aDecoder.decodeObject(forKey: "listeners") as? String
-        mbid = aDecoder.decodeObject(forKey: "mbid") as? String
         name = aDecoder.decodeObject(forKey: "name") as? String
-        streamable = aDecoder.decodeObject(forKey: "streamable") as? String
-        url = aDecoder.decodeObject(forKey: "url") as? String
     }
     
     @objc func encode(with aCoder: NSCoder) {
@@ -168,29 +131,11 @@ class Artist: NSObject, NSCoding, Mappable {
             
             aCoder.encode(image, forKey: "image")
         }
-        if listeners != nil {
-            
-            aCoder.encode(listeners, forKey: "listeners")
-        }
-        if mbid != nil {
-            
-            aCoder.encode(mbid, forKey: "mbid")
-        }
         if name != nil {
             
             aCoder.encode(name, forKey: "name")
         }
-        if streamable != nil {
-            
-            aCoder.encode(streamable, forKey: "streamable")
-        }
-        if url != nil {
-            
-            aCoder.encode(url, forKey: "url")
-        }
-        
     }
-    
 }
 
 class Image: NSObject, NSCoding, Mappable {

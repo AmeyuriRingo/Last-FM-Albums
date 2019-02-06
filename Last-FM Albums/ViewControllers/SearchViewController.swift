@@ -13,60 +13,52 @@ import CodableAlamofire
 
 class SearchViewController: UIViewController {
     
-    private let cellReuseIdentifier = "cell"
+    private let cellReuseIdentifier = "artistCell"
     private var artists: [String]?
+    private let albumsSegueIdentifier = "ShowAlbumsSegue"
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searheArtistTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reloadTableData()
         table.delegate = self
         table.dataSource = self
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     func reloadTableData() {
-        
+        //updates teble data
         table.reloadData()
     }
-        @IBAction func refresTableData(_ sender: UIBarButtonItem) {
-            //sends a reauest to server and reload the table
-            guard let text = searheArtistTextField.text else { return }
-        searchArtist(name: text) { names in
-
+    @IBAction func refresTableData(_ sender: UIBarButtonItem) {
+        //sends a reauest to server and reload the table
+        activityIndicator.startAnimating()
+        guard let text = searheArtistTextField.text else { return }
+        let textForRequest = text.replacingOccurrences(of: " ", with: "+")
+        SearchForArtist.search(nameOfArtist: textForRequest) { names in
+            
             self.artists = names
             self.table.reloadData()
+            self.activityIndicator.stopAnimating()
         }
-        
     }
-
-    func searchArtist(name: String, completion: @escaping ([String]?) -> Void) {
-        //request to Last-FM to get list of artists
-        Alamofire.request("http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=\(name)&api_key=bad5acca27008a09709ccb2c0258003b&format=json")
-            .responseObject { (response: DataResponse<SearchArtistAPIModel>) in
-                //decode JSON from server to object
-                if let artistName = response.result.value {
-                    guard let artistsArray = artistName.results?.artistmatches?.artist else { return }
-                    var names: [String] = []
-                    for artists in artistsArray {
-                        names.append(artists.name ?? "")
-                        debugPrint(names)
-                        //self.reloadTableData()
-                        completion(names)
-                    }
-                }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == albumsSegueIdentifier, let destination = segue.destination as? AlbumsViewController,
+            let artistIndex = table.indexPathForSelectedRow?.row {
+            destination.artistName = artists?[artistIndex]
         }
-        //reloadTableData()
     }
 }
+
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //number of cells
-        return artists?.count ?? 0
+        guard let numberOfRows = artists?.count else { return 0 }
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
