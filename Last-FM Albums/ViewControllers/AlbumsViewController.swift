@@ -11,6 +11,7 @@ import UIKit
 class AlbumsViewController: UIViewController {
     
     private let cellReuseIdentifier = "albumCell"
+    private let detailSegueIdentifier = "showDetailSegue"
     private var albums: [String]?
     private var saveData = SaveData()
     
@@ -23,12 +24,11 @@ class AlbumsViewController: UIViewController {
         super.viewDidLoad()
         
         activityIndicator.startAnimating()
-        reloadTableData()
         table.delegate = self
         table.dataSource = self
         guard let text = artistName else { return }
         let textForRequest = text.replacingOccurrences(of: " ", with: "+")
-        SearchForArtistsAlbums.search(nameOfArtist: textForRequest) { albums in
+        Search.forArtistsAlbums(nameOfArtist: textForRequest) { albums in
             
             self.albums = albums
             self.table.reloadData()
@@ -38,15 +38,18 @@ class AlbumsViewController: UIViewController {
     }
     
     @IBAction func saveToLocalStorage(_ sender: UIButton) {
-        
+
         if let artistIndex = table.indexPathForSelectedRow?.row {
             guard let name = artistName, let album = albums?[artistIndex] else { return }
             let nameForRequest = name.replacingOccurrences(of: " ", with: "+")
             let albumForRequest = album.replacingOccurrences(of: " ", with: "+")
-            SearchForArtistsAlbums.searchAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
-                
-                guard let artist = albumArtist, let name = albumName, let track = tracks else { return }
-                //self.saveData.localStorageSave(artist: artist, image: <#T##UIImage#>, name: name, tracks: track)
+            Search.forAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
+
+                    guard let artist = albumArtist, let imageString = imageURL, let name = albumName, let track = tracks else { return }
+                Search.getImage(imageURL: imageString) { image in
+                    guard let albumImage = image else { return }
+                    self.saveData.localStorageSave(artist: artist, image: albumImage, name: name)
+                }
             }
         }
     }
@@ -54,13 +57,21 @@ class AlbumsViewController: UIViewController {
         
         table.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == detailSegueIdentifier, let destination = segue.destination as? DetailViewController,
+            let albumIndex = table.indexPathForSelectedRow?.row {
+            destination.albumsName = albums?[albumIndex]
+            destination.artistsName = artistName
+        }
+    }
+    
 }
 extension AlbumsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let numberOfRows = albums?.count else { return 0 }
-        return numberOfRows
+        return albums?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

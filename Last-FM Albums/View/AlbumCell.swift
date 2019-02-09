@@ -9,7 +9,7 @@
 import UIKit
 
 class AlbumCell: UITableViewCell {
-    
+    // добавить конфигуратор
     @IBOutlet weak var albumName: UILabel!
     
     override func prepareForReuse() {

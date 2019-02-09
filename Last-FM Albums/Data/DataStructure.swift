@@ -13,13 +13,11 @@ class DataStructure {
     var artist: String
     var image: UIImage
     var name: String
-    var tracks: String
     
-    init(artist: String, image: UIImage, name: String, tracks: String) {
+    init(artist: String, image: UIImage, name: String) {
         
         self.artist = artist
         self.image = image
         self.name = name
-        self.tracks = tracks
     }
 }

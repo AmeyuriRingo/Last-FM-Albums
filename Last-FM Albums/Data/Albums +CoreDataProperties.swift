@@ -9,14 +9,13 @@
 import Foundation
 import CoreData
 
-extension SavedAlbumData {
+extension Albums {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<SavedAlbumData> {
-        return NSFetchRequest<SavedAlbumData>(entityName: "SavedAlbumData")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Albums> {
+        return NSFetchRequest<Albums>(entityName: "Albums")
     }
     
     @NSManaged public var artist: String?
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
-    @NSManaged public var tracks: String?
 }

@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(SavedAlbumData)
-public class SavedAlbumData: NSManagedObject {
+@objc(Albums)
+public class Albums: NSManagedObject {
     
     convenience init() {
         self.init(context: CoreDataManager.instance.managedObjectContext)

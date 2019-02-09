@@ -5,9 +5,6 @@ PODS:
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - CodableAlamofire (1.1.0):
-    - Alamofire (~> 4.0)
-  - KeyboardHideManager (1.2.0)
   - ObjectMapper (3.4.2)
   - SwiftLint (0.30.1)
 
@@ -15,8 +12,6 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - AlamofireObjectMapper
-  - CodableAlamofire
-  - KeyboardHideManager (~> 1.0)
   - SwiftLint
 
 SPEC REPOS:
@@ -24,8 +19,6 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - AlamofireObjectMapper
-    - CodableAlamofire
-    - KeyboardHideManager
     - ObjectMapper
     - SwiftLint
 
@@ -33,11 +26,9 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  CodableAlamofire: e2d2edcec7cf413f7862c30c8fa98eded27a83f9
-  KeyboardHideManager: 49ca33b24a1000f85c6667c98459e20c231e7d54
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 4da60907b7ba73d1f1eb650ebe1e1e872ae5ce5d
+PODFILE CHECKSUM: 37688cd3c3340bc4dc35c3d55ba38933dbfa15b3
 
 COCOAPODS: 1.6.0.beta.2

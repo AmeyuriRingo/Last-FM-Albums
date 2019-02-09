@@ -8,14 +8,12 @@
 
 import UIKit
 import Alamofire
-import AlamofireObjectMapper
-import CodableAlamofire
 
 class SearchViewController: UIViewController {
     
     private let cellReuseIdentifier = "artistCell"
     private var artists: [String]?
-    private let albumsSegueIdentifier = "ShowAlbumsSegue"
+    private let albumsSegueIdentifier = "showAlbumsSegue"
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var table: UITableView!
@@ -24,27 +22,28 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        table.delegate = self
-        table.dataSource = self
+        searheArtistTextField.delegate = self
     }
-    
-    func reloadTableData() {
-        //updates teble data
-        table.reloadData()
-    }
+
     @IBAction func refresTableData(_ sender: UIBarButtonItem) {
         //sends a reauest to server and reload the table
         activityIndicator.startAnimating()
         guard let text = searheArtistTextField.text else { return }
         let textForRequest = text.replacingOccurrences(of: " ", with: "+")
-        SearchForArtist.search(nameOfArtist: textForRequest) { names in
+        Search.forArtist(nameOfArtist: textForRequest) { names in
             
             self.artists = names
             self.table.reloadData()
             self.activityIndicator.stopAnimating()
         }
     }
-    
+    //hide keyboard method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        textField.resignFirstResponder()
+        return true
+    }
+    //sends name of artist to AlbumsViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == albumsSegueIdentifier, let destination = segue.destination as? AlbumsViewController,
             let artistIndex = table.indexPathForSelectedRow?.row {
@@ -53,12 +52,11 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //number of cells
-        guard let numberOfRows = artists?.count else { return 0 }
-        return numberOfRows
+        return artists?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

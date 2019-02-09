@@ -17,10 +17,10 @@ class SaveData {
         var fetchedTableData: [DataStructure] = []
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedAlbumData")
         do {
-            guard let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [SavedAlbumData] else { return [] }
+            guard let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [Albums] else { return [] }
             for result in results {
-                guard let artist = result.artist, let name = result.name, let imageData = result.image, let image = UIImage(data: imageData), let tracks = result.tracks else { return [] }
-                let emptyElement = DataStructure(artist: artist, image: image, name: name, tracks: tracks)
+                guard let artist = result.artist, let name = result.name, let imageData = result.image, let image = UIImage(data: imageData) else { return [] }
+                let emptyElement = DataStructure(artist: artist, image: image, name: name)
                 fetchedTableData.append(emptyElement)
             }
         } catch {
@@ -29,15 +29,14 @@ class SaveData {
         return fetchedTableData
     }
     
-    func localStorageSave(artist: String, image: UIImage, name: String, tracks: String) {
+    func localStorageSave(artist: String, image: UIImage, name: String) {
         
-        var managedObject: [SavedAlbumData] = []
-        let emptyElement = SavedAlbumData()
-
+        var managedObject: [Albums] = []
+        let emptyElement = Albums()
+// пихать URL картинки, а не саму картинку
         emptyElement.artist = artist
         emptyElement.image = image.pngData()
         emptyElement.name = name
-        emptyElement.tracks = tracks
         managedObject.append(emptyElement)
         CoreDataManager.instance.saveContext()
         

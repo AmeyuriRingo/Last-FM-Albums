@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="SavedAlbumData" representedClassName="SavedAlbumData" syncable="YES">
+    <entity name="Albums" representedClassName="Albums" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tracks" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Tracks" representedClassName="Tracks" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="SavedAlbumData" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Albums" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Tracks" positionX="-63" positionY="9" width="128" height="45"/>
     </elements>
 </model>

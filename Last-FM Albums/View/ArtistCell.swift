@@ -9,7 +9,7 @@
 import UIKit
 
 class ArtistCell: UITableViewCell {
-    
+    // добавить конфигуратор
     @IBOutlet weak var artistName: UILabel!
     
     override func prepareForReuse() {
