@@ -1,21 +1,21 @@
 //
-//  SearchAlbumDetailsAPIModel.swift
+//  Topalbum.swift
 //  Last-FM Albums
 //
-//  Created by Ringo_02 on 2/6/19.
+//  Created by Ringo_02 on 2/10/19.
 //  Copyright © 2019 Ringo_02. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-class SearchAlbumDetailsAPIModel: NSObject, NSCoding, Mappable {
+class Topalbum: NSObject, NSCoding, Mappable {
     
-    var album: Album?
+    var album: [AlbumName]?
     
     class func newInstance(map: Map) -> Mappable? {
         
-        return SearchAlbumDetailsAPIModel()
+        return Topalbum()
     }
     
     required init?(map: Map) {}
@@ -28,17 +28,13 @@ class SearchAlbumDetailsAPIModel: NSObject, NSCoding, Mappable {
     
     @objc required init(coder aDecoder: NSCoder) {
         
-        album = aDecoder.decodeObject(forKey: "album") as? Album
+        album = aDecoder.decodeObject(forKey: "album") as? [AlbumName]
     }
     
     @objc func encode(with aCoder: NSCoder) {
         
         if album != nil {
-            
             aCoder.encode(album, forKey: "album")
         }
     }
 }
-
-
-

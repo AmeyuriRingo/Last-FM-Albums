@@ -1,5 +1,5 @@
 //
-//  SavedAlbumData+CoreDataProperties.swift
+//  Albums+CoreDataProperties.swift
 //  Last-FM Albums
 //
 //  Created by Ringo_02 on 2/6/19.

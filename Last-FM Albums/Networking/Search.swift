@@ -17,45 +17,18 @@ class Search {
         //request to Last-FM to get list of artists
         Alamofire.request("http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=\(nameOfArtist)&api_key=bad5acca27008a09709ccb2c0258003b&format=json")
             .responseObject { (response: DataResponse<SearchArtistAPIModel>) in
-                //decode JSON from server to object
-//                guard case let .failure(error) = response.result else { return }
-//
-//                if let error = error as? AFError {
-//                    switch error {
-//                    case .invalidURL(let url):
-//                        print("Invalid URL: \(url) - \(error.localizedDescription)")
-//                    case .parameterEncodingFailed(let reason):
-//                        print("Parameter encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .multipartEncodingFailed(let reason):
-//                        print("Multipart encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .responseValidationFailed(let reason):
-//                        print("Response validation failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//
-//                        switch reason {
-//                        case .dataFileNil, .dataFileReadFailed:
-//                            print("Downloaded file could not be read")
-//                        case .missingContentType(let acceptableContentTypes):
-//                            print("Content Type Missing: \(acceptableContentTypes)")
-//                        case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
-//                            print("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
-//                        case .unacceptableStatusCode(let code):
-//                            print("Response status code was unacceptable: \(code)")
-//                        }
-//                    case .responseSerializationFailed(let reason):
-//                        print("Response serialization failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    }
-//
-//                    print("Underlying error: \(String(describing: error.underlyingError))")
-//                } else if let error = error as? URLError {
-//                    print("URLError occurred: \(error)")
-//                } else {
-//                    print("Unknown error: \(error)")
-//                }
-
+                //to get status code
+                if let status = response.response?.statusCode {
+                    
+                    switch(status){
+                        
+                    case 201:
+                        print("example success")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                
                 if let artistName = response.result.value {
                     guard let artistsArray = artistName.results?.artistmatches?.artist else { return }
                     var names: [String] = []
@@ -72,47 +45,19 @@ class Search {
         
         Alamofire.request("http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=\(nameOfArtist)&api_key=bad5acca27008a09709ccb2c0258003b&format=json")
             .responseObject { (response: DataResponse<SearchAlbumAPIModel>) in
-                
-//                guard case let .failure(error) = response.result else { return }
-//
-//                if let error = error as? AFError {
-//                    switch error {
-//                    case .invalidURL(let url):
-//                        print("Invalid URL: \(url) - \(error.localizedDescription)")
-//                    case .parameterEncodingFailed(let reason):
-//                        print("Parameter encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .multipartEncodingFailed(let reason):
-//                        print("Multipart encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .responseValidationFailed(let reason):
-//                        print("Response validation failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//
-//                        switch reason {
-//                        case .dataFileNil, .dataFileReadFailed:
-//                            print("Downloaded file could not be read")
-//                        case .missingContentType(let acceptableContentTypes):
-//                            print("Content Type Missing: \(acceptableContentTypes)")
-//                        case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
-//                            print("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
-//                        case .unacceptableStatusCode(let code):
-//                            print("Response status code was unacceptable: \(code)")
-//                        }
-//                    case .responseSerializationFailed(let reason):
-//                        print("Response serialization failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    }
-//
-//                    print("Underlying error: \(error.underlyingError)")
-//                } else if let error = error as? URLError {
-//                    print("URLError occurred: \(error)")
-//                } else {
-//                    print("Unknown error: \(error)")
-//                }
-                
+                //request for receiving albums of artist from the server
                 if let albumName = response.result.value {
                     
+                    if let status = response.response?.statusCode {
+                        
+                        switch(status){
+                            
+                        case 201:
+                            print("example success")
+                        default:
+                            print("error with response status: \(status)")
+                        }
+                    }
                     guard let albumsArray = albumName.topalbums?.album else { return }
                     var names: [String] = []
                     for albums in albumsArray {
@@ -125,50 +70,22 @@ class Search {
     }
     
     static func forAlbumDetails(nameOfArtist: String, nameOfAlbum: String, completion: @escaping (String?, String?, [String]?, String?) -> Void) {
-        
+        //request for receiving detail info about albums from the server
         Alamofire.request("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=bad5acca27008a09709ccb2c0258003b&artist=\(nameOfArtist)&album=\(nameOfAlbum)&format=json")
             .responseObject { (response: DataResponse<SearchAlbumDetailsAPIModel>) in
                 
-//                guard case let .failure(error) = response.result else { return }
-//
-//                if let error = error as? AFError {
-//                    switch error {
-//                    case .invalidURL(let url):
-//                        print("Invalid URL: \(url) - \(error.localizedDescription)")
-//                    case .parameterEncodingFailed(let reason):
-//                        print("Parameter encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .multipartEncodingFailed(let reason):
-//                        print("Multipart encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .responseValidationFailed(let reason):
-//                        print("Response validation failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//
-//                        switch reason {
-//                        case .dataFileNil, .dataFileReadFailed:
-//                            print("Downloaded file could not be read")
-//                        case .missingContentType(let acceptableContentTypes):
-//                            print("Content Type Missing: \(acceptableContentTypes)")
-//                        case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
-//                            print("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
-//                        case .unacceptableStatusCode(let code):
-//                            print("Response status code was unacceptable: \(code)")
-//                        }
-//                    case .responseSerializationFailed(let reason):
-//                        print("Response serialization failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    }
-//
-//                    print("Underlying error: \(error.underlyingError)")
-//                } else if let error = error as? URLError {
-//                    print("URLError occurred: \(error)")
-//                } else {
-//                    print("Unknown error: \(error)")
-//                }
+                if let status = response.response?.statusCode {
+                    
+                    switch(status){
+                        
+                    case 201:
+                        print("example success")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
                 
                 if let albumDetails = response.result.value {
-                    //debugPrint(albumDetails)
                     guard let albumName = albumDetails.album?.name, let albumArtist = albumDetails.album?.artist, let albumTracks = albumDetails.album?.tracks?.track, let albumImage = albumDetails.album?.image else { return }
                     var tracks: [String] = []
                     var imageURL: String = ""
@@ -187,47 +104,20 @@ class Search {
     }
     
     static func getImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
-        
+        //getting image from server by sending URL of image
         Alamofire.request(imageURL)
             .responseImage { response in
                 
-//                guard case let .failure(error) = response.result else { return }
-//                
-//                if let error = error as? AFError {
-//                    switch error {
-//                    case .invalidURL(let url):
-//                        print("Invalid URL: \(url) - \(error.localizedDescription)")
-//                    case .parameterEncodingFailed(let reason):
-//                        print("Parameter encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .multipartEncodingFailed(let reason):
-//                        print("Multipart encoding failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    case .responseValidationFailed(let reason):
-//                        print("Response validation failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                        
-//                        switch reason {
-//                        case .dataFileNil, .dataFileReadFailed:
-//                            print("Downloaded file could not be read")
-//                        case .missingContentType(let acceptableContentTypes):
-//                            print("Content Type Missing: \(acceptableContentTypes)")
-//                        case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
-//                            print("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
-//                        case .unacceptableStatusCode(let code):
-//                            print("Response status code was unacceptable: \(code)")
-//                        }
-//                    case .responseSerializationFailed(let reason):
-//                        print("Response serialization failed: \(error.localizedDescription)")
-//                        print("Failure Reason: \(reason)")
-//                    }
-//                    
-//                    print("Underlying error: \(error.underlyingError)")
-//                } else if let error = error as? URLError {
-//                    print("URLError occurred: \(error)")
-//                } else {
-//                    print("Unknown error: \(error)")
-//                }
+                if let status = response.response?.statusCode {
+                    
+                    switch(status){
+                        
+                    case 201:
+                        print("example success")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
                 
                 if let image = response.result.value {
                     completion(image)

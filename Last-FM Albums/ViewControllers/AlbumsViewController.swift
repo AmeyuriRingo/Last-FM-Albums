@@ -13,7 +13,6 @@ class AlbumsViewController: UIViewController {
     private let cellReuseIdentifier = "albumCell"
     private let detailSegueIdentifier = "showDetailSegue"
     private var albums: [String]?
-    private var saveData = SaveData()
     
     var artistName: String?
     
@@ -22,7 +21,7 @@ class AlbumsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //getting albims list from server
         activityIndicator.startAnimating()
         table.delegate = self
         table.dataSource = self
@@ -34,31 +33,16 @@ class AlbumsViewController: UIViewController {
             self.table.reloadData()
             self.activityIndicator.stopAnimating()
         }
-            
+        
     }
     
-    @IBAction func saveToLocalStorage(_ sender: UIButton) {
-
-        if let artistIndex = table.indexPathForSelectedRow?.row {
-            guard let name = artistName, let album = albums?[artistIndex] else { return }
-            let nameForRequest = name.replacingOccurrences(of: " ", with: "+")
-            let albumForRequest = album.replacingOccurrences(of: " ", with: "+")
-            Search.forAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
-
-                    guard let artist = albumArtist, let imageString = imageURL, let name = albumName, let track = tracks else { return }
-                Search.getImage(imageURL: imageString) { image in
-                    guard let albumImage = image else { return }
-                    self.saveData.localStorageSave(artist: artist, image: albumImage, name: name)
-                }
-            }
-        }
-    }
-        func reloadTableData() {
+    func reloadTableData() {
         
         table.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //send albuns info to detailScreen
         if segue.identifier == detailSegueIdentifier, let destination = segue.destination as? DetailViewController,
             let albumIndex = table.indexPathForSelectedRow?.row {
             destination.albumsName = albums?[albumIndex]

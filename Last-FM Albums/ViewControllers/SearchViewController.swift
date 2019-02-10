@@ -22,11 +22,11 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searheArtistTextField.delegate = self
+        //searheArtistTextField.delegate = self
     }
 
     @IBAction func refresTableData(_ sender: UIBarButtonItem) {
-        //sends a reauest to server and reload the table
+        //sends a request to server and reload the table
         activityIndicator.startAnimating()
         guard let text = searheArtistTextField.text else { return }
         let textForRequest = text.replacingOccurrences(of: " ", with: "+")

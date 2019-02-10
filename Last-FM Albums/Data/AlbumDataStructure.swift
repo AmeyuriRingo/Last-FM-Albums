@@ -1,5 +1,5 @@
 //
-//  DataStructure.swift
+//  AlbumDataStructure
 //  Last-FM Albums
 //
 //  Created by Ringo_02 on 2/6/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DataStructure {
+class AlbumDataStructure {
     
     var artist: String
     var image: UIImage
