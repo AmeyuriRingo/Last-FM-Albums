@@ -40,9 +40,3 @@ class SearchAlbumAPIModel: NSObject, NSCoding, Mappable {
         }
     }
 }
-
-
-
-
-
-

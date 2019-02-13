@@ -17,18 +17,17 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var searheArtistTextField: UITextField!
+    @IBOutlet weak var searchArtistTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //searheArtistTextField.delegate = self
     }
 
     @IBAction func refresTableData(_ sender: UIBarButtonItem) {
         //sends a request to server and reload the table
         activityIndicator.startAnimating()
-        guard let text = searheArtistTextField.text else { return }
+        guard let text = searchArtistTextField.text else { return }
         let textForRequest = text.replacingOccurrences(of: " ", with: "+")
         Search.forArtist(nameOfArtist: textForRequest) { names in
             

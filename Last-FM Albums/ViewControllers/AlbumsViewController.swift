@@ -33,7 +33,6 @@ class AlbumsViewController: UIViewController {
             self.table.reloadData()
             self.activityIndicator.stopAnimating()
         }
-        
     }
     
     func reloadTableData() {

@@ -31,12 +31,12 @@ class SaveData {
     
     func localStorageSaveAlbums(artist: String, image: UIImage, name: String) {
         //store albums to DB
-        var managedObject: [Albums] = []
+        //var managedObject: [Albums] = []
         let emptyElement = Albums()
         emptyElement.artist = artist
         emptyElement.image = image.pngData()
         emptyElement.name = name
-        managedObject.append(emptyElement)
+        //managedObject.append(emptyElement)
         CoreDataManager.instance.saveContext()
         
     }
@@ -60,20 +60,19 @@ class SaveData {
     
     func localStorageSaveTracks(name: String) {
         //store tracks in DB
-        var managedObject: [Tracks] = []
+        //var managedObject: [Tracks] = []
         let emptyElement = Tracks()
         emptyElement.name = name
-        managedObject.append(emptyElement)
+        //managedObject.append(emptyElement)
         CoreDataManager.instance.saveContext()
-        
     }
     
-    func structureToObject(data: AlbumDataStructure) -> Albums
-    {
+    func structureToObject(artist: String, image: UIImage, name: String) -> Albums {
+        
         let resultValue = Albums()
-        resultValue.name = data.name
-        resultValue.image = data.image.pngData()
-        resultValue.artist = data.artist
+        resultValue.name = name
+        resultValue.image = image.pngData()
+        resultValue.artist = artist
         return resultValue
     }
 }

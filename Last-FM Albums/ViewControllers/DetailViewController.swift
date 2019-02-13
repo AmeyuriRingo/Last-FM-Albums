@@ -27,12 +27,17 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         //get all detail about album and present on view
         setDataToVC()
+        getDetailInfo()
+    }
+    
+    func getDetailInfo() {
+        
         activityIndicator.startAnimating()
         guard let name = artistsName, let album = albumsName else { return }
         let nameForRequest = name.replacingOccurrences(of: " ", with: "+")
         let albumForRequest = album.replacingOccurrences(of: " ", with: "+")
         Search.forAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
-            
+            //debugPrint(tracks)
             guard let artist = albumArtist, let imageString = imageURL, let name = albumName, let track = tracks else { return }
             
             self.albumName.text = name
@@ -46,7 +51,6 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
     func setDataToVC() {
         
         data = saveData.fetchDataFromAlbumsDB()
@@ -59,4 +63,35 @@ class DetailViewController: UIViewController {
         self.saveData.localStorageSaveTracks(name: tracks)
         
     }
+    
+    @IBAction func deleteFromDB(_ sender: Any) {
+        
+        //guard let artist = artist.text, let image = albumImage.image, let name = albumsName, let tracks = trackList.text else { return }
+//        let albumObjc = saveData.structureToObject(artist: artist, image: image, name: name)
+//        CoreDataManager.instance.deleteObject(albumObjc)
+        
+//        let context = CoreDataManager.instance.managedObjectContext
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Albums")
+//        if let result = try? context.fetch(fetchRequest) {
+//            for object in result {
+//                context.delete(object)
+//            }
+//        }
+        
+//        let context = CoreDataManager.instance.persistentContainer.viewContext
+//        let newAlbum = NSEntityDescription.insertNewObject(forEntityName: "Albums", into: context)
+//        newAlbum.setValue(artist, forKey: "artist")
+//        newAlbum.setValue(image, forKey: "image")
+//        newAlbum.setValue(name, forKey: "name")
+        //context.delete(albumObjc)
+//        CoreDataManager.instance.saveContext()
+
+//        do {
+//
+//        try context.save()
+//        } catch {
+//            print("Error")
+//        }
+    }
+    
 }
