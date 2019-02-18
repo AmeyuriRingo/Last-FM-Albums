@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     
     private let cellReuseIdentifier = "artistCell"
     private var artists: [String]?
+    private var imagesURL: [String]?
     private let albumsSegueIdentifier = "showAlbumsSegue"
     private var searchText: String?
     private let searchController = UISearchController(searchResultsController: nil)
@@ -64,6 +65,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UITe
     
     func updateSearchResults(for searchController: UISearchController) {
         //updating search results after entering two characters
+        let search = Search()
         guard let searchCharNumber = searchController.searchBar.text?.count else { return }
         if searchCharNumber > 2 {
             
@@ -72,16 +74,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UITe
             activityIndicator.startAnimating()
             guard let text = searchText else { return }
             let textForRequest = text.replacingOccurrences(of: " ", with: "+")
-            Search.forArtist(nameOfArtist: textForRequest) { names in
-                
-                //                    self.artists?.append("No artists found")
-                //                    self.table.reloadData()
-                //                    self.activityIndicator.stopAnimating()
-                //                    Alert.alert(errorText: "No artists found")
-                self.artists = names
-                self.activityIndicator.stopAnimating()
-                self.table.reloadData()
-            }
+            search.searchForArtist(nameOfArtist: textForRequest)
+            //            Search.forArtist(nameOfArtist: textForRequest) { names in
+            //
+            //                //                    self.artists?.append("No artists found")
+            //                //                    self.table.reloadData()
+            //                //                    self.activityIndicator.stopAnimating()
+            //                //                    Alert.alert(errorText: "No artists found")
+            //                self.artists = names
+            //                self.activityIndicator.stopAnimating()
+            //                self.table.reloadData()
+            //            }
         }
     }
     
@@ -104,5 +107,24 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UITe
         }
         
         return cell
+    }
+}
+
+extension SearchViewController: SearchArtistDelegate {
+        
+    func loadDataCompleted(names: [String], images: [Image]) {
+        artists = names
+        images.forEach(
+            {element in
+                if let urlString = element.text
+                {
+                    let url = URL(string: urlString)
+                    
+                }
+        }
+        )
+        self.artists = names
+        self.activityIndicator.stopAnimating()
+        self.table.reloadData()
     }
 }

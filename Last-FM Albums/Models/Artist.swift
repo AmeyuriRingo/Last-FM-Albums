@@ -11,11 +11,11 @@ import Foundation
 class Artist: Codable {
     
     let name: String?
-    //let image: [Image]?
+    let image: [Image]?
     
-    init(name: String? /*image: [Image]?*/) {
+    init(name: String?, image: [Image]?) {
         
         self.name = name
-        //self.image = image
+        self.image = image
     }
 }
