@@ -36,20 +36,20 @@ class DetailViewController: UIViewController {
         guard let name = artistsName, let album = albumsName else { return }
         let nameForRequest = name.replacingOccurrences(of: " ", with: "+")
         let albumForRequest = album.replacingOccurrences(of: " ", with: "+")
-        Search.forAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
-            //debugPrint(tracks)
-            guard let artist = albumArtist, let imageString = imageURL, let name = albumName, let track = tracks else { return }
-            
-            self.albumName.text = name
-            self.artist.text = artist
-            self.trackList.text = track.joined(separator: "\n")
-            
-            Search.getImage(imageURL: imageString) { image in
-                guard let albumImages = image else { return }
-                self.albumImage.image = albumImages
-                self.activityIndicator.stopAnimating()
-            }
-        }
+//        Search.forAlbumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest) { albumName, albumArtist, tracks, imageURL in
+//            //debugPrint(tracks)
+//            guard let artist = albumArtist, let imageString = imageURL, let name = albumName, let track = tracks else { return }
+//            
+//            self.albumName.text = name
+//            self.artist.text = artist
+//            self.trackList.text = track.joined(separator: "\n")
+//            
+//            Search.getImage(imageURL: imageString) { image in
+//                guard let albumImages = image else { return }
+//                self.albumImage.image = albumImages
+//                self.activityIndicator.stopAnimating()
+//            }
+//        }
     }
     func setDataToVC() {
         

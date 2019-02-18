@@ -23,16 +23,16 @@ class AlbumsViewController: UIViewController {
         super.viewDidLoad()
         //getting albims list from server
         activityIndicator.startAnimating()
-        table.delegate = self
-        table.dataSource = self
+        //table.delegate = self
+        //table.dataSource = self
         guard let text = artistName else { return }
         let textForRequest = text.replacingOccurrences(of: " ", with: "+")
-        Search.forArtistsAlbums(nameOfArtist: textForRequest) { albums in
-            
-            self.albums = albums
-            self.table.reloadData()
-            self.activityIndicator.stopAnimating()
-        }
+//        Search.forArtistsAlbums(nameOfArtist: textForRequest) { albums in
+//            
+//            self.albums = albums
+//            self.table.reloadData()
+//            self.activityIndicator.stopAnimating()
+//        }
     }
     
     func reloadTableData() {

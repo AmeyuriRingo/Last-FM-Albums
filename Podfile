@@ -6,7 +6,6 @@ inhibit_all_warnings!
 target 'Last-FM Albums' do
 	
    pod 'SwiftLint'
-   #pod 'KeyboardHideManager', '~> 1.0'
    pod 'Alamofire'
    pod 'AlamofireImage'
    pod 'AlamofireObjectMapper'

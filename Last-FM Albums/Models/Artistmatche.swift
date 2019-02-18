@@ -7,37 +7,13 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Artistmatche: NSObject, NSCoding, Mappable {
+class ArtistMatches: Codable {
     
-    var artist: [Artist]?
+    let artist: [Artist]?
     
-    class func newInstance(map: Map) -> Mappable? {
+    init(artist: [Artist]?) {
         
-        return Artistmatche()
-    }
-    
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
-        
-        artist <- map["artist"]
-        
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        artist = aDecoder.decodeObject(forKey: "artist") as? [Artist]
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if artist != nil {
-            
-            aCoder.encode(artist, forKey: "artist")
-        }
+        self.artist = artist
     }
 }

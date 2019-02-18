@@ -21,7 +21,6 @@ class MainScreenViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hideBackButton()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -33,12 +32,6 @@ class MainScreenViewController: UICollectionViewController {
         //fetching stored data to collectionView
         collectionData = saveData.fetchDataFromAlbumsDB()
         collection?.reloadData()
-    }
-    
-    func hideBackButton() {
-        
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
-        navigationItem.leftBarButtonItem = backButton
     }
 }
 

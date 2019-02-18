@@ -7,43 +7,15 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Artist: NSObject, NSCoding, Mappable {
+class Artist: Codable {
     
-    var image: [Image]?
-    var name: String?
+    let name: String?
+    //let image: [Image]?
     
-    class func newInstance(map: Map) -> Mappable? {
+    init(name: String? /*image: [Image]?*/) {
         
-        return Artist()
-    }
-    
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
-        
-        image <- map["image"]
-        name <- map["name"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        image = aDecoder.decodeObject(forKey: "image") as? [Image]
-        name = aDecoder.decodeObject(forKey: "name") as? String
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if image != nil {
-            
-            aCoder.encode(image, forKey: "image")
-        }
-        if name != nil {
-            
-            aCoder.encode(name, forKey: "name")
-        }
+        self.name = name
+        //self.image = image
     }
 }
