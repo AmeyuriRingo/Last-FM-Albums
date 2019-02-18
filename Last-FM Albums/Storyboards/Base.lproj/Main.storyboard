@@ -142,50 +142,23 @@
                                 <rect key="frame" x="169" y="347" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here will be artist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQu-po-6AC">
-                                <rect key="frame" x="97.5" y="72" width="180" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Kyj-8w-fiA" firstAttribute="top" secondItem="d0H-tz-rbb" secondAttribute="top" id="8yV-Ey-nif"/>
                             <constraint firstItem="d0H-tz-rbb" firstAttribute="bottom" secondItem="Kyj-8w-fiA" secondAttribute="bottom" id="Irq-kc-YZF"/>
                             <constraint firstItem="d0H-tz-rbb" firstAttribute="trailing" secondItem="Kyj-8w-fiA" secondAttribute="trailing" id="O2C-RN-Jtt"/>
-                            <constraint firstItem="OQu-po-6AC" firstAttribute="centerX" secondItem="d0H-tz-rbb" secondAttribute="centerX" id="OcE-7n-67Q"/>
                             <constraint firstItem="Kyj-8w-fiA" firstAttribute="leading" secondItem="d0H-tz-rbb" secondAttribute="leading" id="Ue9-LE-7UF"/>
                             <constraint firstItem="FV6-Hu-bq0" firstAttribute="centerY" secondItem="d0H-tz-rbb" secondAttribute="centerY" id="WSJ-HJ-yBB"/>
                             <constraint firstItem="FV6-Hu-bq0" firstAttribute="centerX" secondItem="d0H-tz-rbb" secondAttribute="centerX" id="hQI-vd-ZCy"/>
-                            <constraint firstItem="OQu-po-6AC" firstAttribute="top" secondItem="d0H-tz-rbb" secondAttribute="top" constant="8" id="icr-hw-P4z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d0H-tz-rbb"/>
                     </view>
                     <navigationItem key="navigationItem" id="idK-UR-vId">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter artist for search" textAlignment="center" minimumFontSize="17" clearButtonMode="always" id="ucI-OX-KzZ" userLabel="Search Artist Text Field" propertyAccessControl="none">
-                            <rect key="frame" x="82" y="7" width="211" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <attributedString key="userComments">
-                                <fragment content="English"/>
-                            </attributedString>
-                            <connections>
-                                <outlet property="delegate" destination="y1n-yY-xU3" id="SNP-bG-v2D"/>
-                            </connections>
-                        </textField>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="WPd-XA-lD1">
-                            <connections>
-                                <action selector="refresTableData:" destination="y1n-yY-xU3" id="aux-Ra-Hnh"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="FV6-Hu-bq0" id="b4R-qT-yKe"/>
-                        <outlet property="searchArtistTextField" destination="ucI-OX-KzZ" id="PoQ-bC-xDt"/>
                         <outlet property="table" destination="Kyj-8w-fiA" id="U0r-Gd-V6V"/>
                     </connections>
                 </viewController>
@@ -418,7 +391,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rLO-KL-YqP"/>
-        <segue reference="wWZ-zy-gUP"/>
+        <segue reference="U0N-7E-pOU"/>
+        <segue reference="Smd-Bd-Oez"/>
     </inferredMetricsTieBreakers>
 </document>

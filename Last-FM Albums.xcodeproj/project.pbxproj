@@ -35,6 +35,7 @@
 		9FB1663A220ACF6300240114 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB16639220ACF6300240114 /* SaveData.swift */; };
 		9FB1663C220ACFA700240114 /* AlbumDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1663B220ACFA700240114 /* AlbumDataStructure.swift */; };
 		9FB1663E220AEA0B00240114 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1663D220AEA0B00240114 /* AlbumCell.swift */; };
+		9FF631C7221A93AB00C037AD /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF631C6221A93AB00C037AD /* AlertController.swift */; };
 		9FFB361622040EC0001F9A4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB361522040EC0001F9A4D /* AppDelegate.swift */; };
 		9FFB361822040EC0001F9A4D /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */; };
 		9FFB361B22040EC0001F9A4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FFB361922040EC0001F9A4D /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		9FB16639220ACF6300240114 /* SaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		9FB1663B220ACFA700240114 /* AlbumDataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataStructure.swift; sourceTree = "<group>"; };
 		9FB1663D220AEA0B00240114 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		9FF631C6221A93AB00C037AD /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		9FFB361222040EC0001F9A4D /* Last-FM Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Last-FM Albums.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FFB361522040EC0001F9A4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		9FB16638220ACF4400240114 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				9FF631C6221A93AB00C037AD /* AlertController.swift */,
 				9FB16639220ACF6300240114 /* SaveData.swift */,
 			);
 			path = Service;
@@ -389,6 +392,7 @@
 				9F9E0B0A220F5B5500BF9AAE /* StoredALbumsCell.swift in Sources */,
 				9FB16631220ACD5400240114 /* AlbumsViewController.swift in Sources */,
 				9F9E0B1022106EDD00BF9AAE /* Tracks +CoreDataProperties.swift in Sources */,
+				9FF631C7221A93AB00C037AD /* AlertController.swift in Sources */,
 				9FB166292209F45700240114 /* ArtistCell.swift in Sources */,
 				9F9E0B1C2210901100BF9AAE /* AlbumName.swift in Sources */,
 				9F9E0B222210908100BF9AAE /* Track.swift in Sources */,
