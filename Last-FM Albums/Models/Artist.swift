@@ -13,6 +13,11 @@ class Artist: Codable {
     let name: String?
     let image: [Image]?
     
+    enum CodingKeys: String, CodingKey {
+        
+        case name = "name"
+        case image = "image"
+    }
     init(name: String?, image: [Image]?) {
         
         self.name = name

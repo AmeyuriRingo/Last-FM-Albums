@@ -7,36 +7,17 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class SearchAlbumAPIModel: NSObject, NSCoding, Mappable {
+class SearchAlbumAPIModel: Codable {
     
-    var topalbums: Topalbum?
+    let topalbums: Topalbum?
     
-    class func newInstance(map: Map) -> Mappable? {
+    enum CodingKeys: String, CodingKey {
         
-        return SearchAlbumAPIModel()
+        case topalbums
     }
-    
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
+    init(topalbums: Topalbum?) {
         
-        topalbums <- map["topalbums"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        topalbums = aDecoder.decodeObject(forKey: "topalbums") as? Topalbum
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if topalbums != nil {
-            
-            aCoder.encode(topalbums, forKey: "topalbums")
-        }
+        self.topalbums = topalbums
     }
 }

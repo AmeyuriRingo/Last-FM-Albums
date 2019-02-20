@@ -7,57 +7,25 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Album: NSObject, NSCoding, Mappable {
+class Album: Codable {
     
-    var artist: String?
-    var image: [Image]?
-    var name: String?
-    var tracks: Track?
+    let artist: String?
+    let image: [Image]?
+    let name: String?
+    let tracks: Track?
     
-    class func newInstance(map: Map) -> Mappable? {
-        
-        return Album()
+    enum CodingKeys: String, CodingKey {
+        case artist = "artist"
+        case image = "image"
+        case name = "name"
+        case tracks
     }
-    
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
+    init(artist: String?, image: [Image]?, name: String?, tracks: Track?) {
         
-        artist <- map["artist"]
-        image <- map["image"]
-        name <- map["name"]
-        tracks <- map["tracks"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        artist = aDecoder.decodeObject(forKey: "artist") as? String
-        image = aDecoder.decodeObject(forKey: "image") as? [Image]
-        name = aDecoder.decodeObject(forKey: "name") as? String
-        tracks = aDecoder.decodeObject(forKey: "tracks") as? Track
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if artist != nil {
-            
-            aCoder.encode(artist, forKey: "artist")
-        }
-        if image != nil {
-            
-            aCoder.encode(image, forKey: "image")
-        }
-        if name != nil {
-            
-            aCoder.encode(name, forKey: "name")
-        }
-        if tracks != nil {
-            
-            aCoder.encode(tracks, forKey: "tracks")
-        }
+        self.artist = artist
+        self.image = image
+        self.name = name
+        self.tracks = tracks
     }
 }

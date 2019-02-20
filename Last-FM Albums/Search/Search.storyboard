@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OC5-BK-Whe">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="wzi-5Y-FQe">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OC5-BK-Whe" customClass="SearchViewController" customModule="Last_FM_Albums" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8R-nY-3XT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9jB-Q3-UkU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistCell" rowHeight="60" id="gDd-8u-Tf4" customClass="ArtistCell" customModule="Last_FM_Albums" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDd-8u-Tf4" id="eKp-cI-NGU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here will be artist name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCo-3N-MyM" userLabel="artistName">
+                                                    <rect key="frame" x="15" y="11" width="345" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qCo-3N-MyM" firstAttribute="bottom" secondItem="eKp-cI-NGU" secondAttribute="bottomMargin" id="2G7-N8-MQd"/>
+                                                <constraint firstItem="qCo-3N-MyM" firstAttribute="leading" secondItem="eKp-cI-NGU" secondAttribute="leadingMargin" id="4rv-tH-e1q"/>
+                                                <constraint firstItem="qCo-3N-MyM" firstAttribute="trailing" secondItem="eKp-cI-NGU" secondAttribute="trailingMargin" id="g54-xk-g32"/>
+                                                <constraint firstItem="qCo-3N-MyM" firstAttribute="top" secondItem="eKp-cI-NGU" secondAttribute="topMargin" id="h5A-Kr-Zax"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistName" destination="qCo-3N-MyM" id="vvP-KF-OU4"/>
+                                            <segue destination="V78-fc-4du" kind="show" identifier="showAlbumsSegue" id="1s4-h2-Kig"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OC5-BK-Whe" id="PFb-N5-8p8"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="55h-uR-3yR">
+                                <rect key="frame" x="169" y="325" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="S56-rU-1K9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="P82-Db-EFX">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="55h-uR-3yR" id="bcQ-Uc-wxU"/>
+                        <outlet property="table" destination="9jB-Q3-UkU" id="f2e-6q-ING"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1h-fC-h5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3421.5999999999999" y="-331.48425787106447"/>
+        </scene>
+        <!--Albums-->
+        <scene sceneID="Llb-SB-NXv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Albums" id="V78-fc-4du" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vN6-bc-pIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4030" y="-333"/>
+        </scene>
+    </scenes>
+</document>
