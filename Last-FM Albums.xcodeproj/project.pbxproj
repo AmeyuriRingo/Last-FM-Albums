@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50BCDC8B2970F2117403119E /* Pods_Last_FM_Albums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150F955B4320F1E3395E7DB9 /* Pods_Last_FM_Albums.framework */; };
 		9F192C472204CEFD001A00D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F192C462204CEFD001A00D6 /* SearchViewController.swift */; };
 		9F192C49220503D2001A00D6 /* SearchArtistAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F192C48220503D2001A00D6 /* SearchArtistAPIModel.swift */; };
 		9F562B6F220AF0FB0084AA32 /* SearchAlbumAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F562B6E220AF0FB0084AA32 /* SearchAlbumAPIModel.swift */; };
@@ -22,12 +21,11 @@
 		9F9E0B1622108EF700BF9AAE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B1522108EF700BF9AAE /* Image.swift */; };
 		9F9E0B1822108F3000BF9AAE /* Artistmatche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B1722108F3000BF9AAE /* Artistmatche.swift */; };
 		9F9E0B1A2210900600BF9AAE /* Topalbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B192210900600BF9AAE /* Topalbum.swift */; };
-		9F9E0B1C2210901100BF9AAE /* AlbumName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B1B2210901100BF9AAE /* AlbumName.swift */; };
 		9F9E0B1E2210901D00BF9AAE /* AlbumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B1D2210901D00BF9AAE /* AlbumImage.swift */; };
 		9F9E0B202210906C00BF9AAE /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B1F2210906C00BF9AAE /* Album.swift */; };
 		9F9E0B222210908100BF9AAE /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E0B212210908100BF9AAE /* Track.swift */; };
 		9FB166292209F45700240114 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB166282209F45700240114 /* ArtistCell.swift */; };
-		9FB1662F220ACBF300240114 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1662E220ACBF300240114 /* Search.swift */; };
+		9FB1662F220ACBF300240114 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1662E220ACBF300240114 /* Network.swift */; };
 		9FB16631220ACD5400240114 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB16630220ACD5400240114 /* AlbumsViewController.swift */; };
 		9FB16633220ACE0C00240114 /* Albums +CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB16632220ACE0C00240114 /* Albums +CoreDataClass.swift */; };
 		9FB16635220ACE6500240114 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB16634220ACE6500240114 /* CoreDataManager.swift */; };
@@ -35,7 +33,10 @@
 		9FB1663A220ACF6300240114 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB16639220ACF6300240114 /* SaveData.swift */; };
 		9FB1663C220ACFA700240114 /* AlbumDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1663B220ACFA700240114 /* AlbumDataStructure.swift */; };
 		9FB1663E220AEA0B00240114 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB1663D220AEA0B00240114 /* AlbumCell.swift */; };
-		9FF631C7221A93AB00C037AD /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF631C6221A93AB00C037AD /* AlertController.swift */; };
+		9FF631C9221C354100C037AD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF631C8221C354100C037AD /* Search.storyboard */; };
+		9FF631CB221C35AD00C037AD /* Albums.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF631CA221C35AD00C037AD /* Albums.storyboard */; };
+		9FF631CD221C35E900C037AD /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF631CC221C35E900C037AD /* Detail.storyboard */; };
+		9FF631CF221C456200C037AD /* AlbumName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF631CE221C456200C037AD /* AlbumName.swift */; };
 		9FFB361622040EC0001F9A4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB361522040EC0001F9A4D /* AppDelegate.swift */; };
 		9FFB361822040EC0001F9A4D /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */; };
 		9FFB361B22040EC0001F9A4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FFB361922040EC0001F9A4D /* Main.storyboard */; };
@@ -45,9 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		150F955B4320F1E3395E7DB9 /* Pods_Last_FM_Albums.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Last_FM_Albums.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFD097473DC26A322296232 /* Pods-Last-FM Albums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Last-FM Albums.release.xcconfig"; path = "Target Support Files/Pods-Last-FM Albums/Pods-Last-FM Albums.release.xcconfig"; sourceTree = "<group>"; };
-		8DF8C67C3B8517CE3AEE7048 /* Pods-Last-FM Albums.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Last-FM Albums.debug.xcconfig"; path = "Target Support Files/Pods-Last-FM Albums/Pods-Last-FM Albums.debug.xcconfig"; sourceTree = "<group>"; };
 		9F192C462204CEFD001A00D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9F192C48220503D2001A00D6 /* SearchArtistAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistAPIModel.swift; sourceTree = "<group>"; };
 		9F562B6E220AF0FB0084AA32 /* SearchAlbumAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlbumAPIModel.swift; sourceTree = "<group>"; };
@@ -62,12 +60,11 @@
 		9F9E0B1522108EF700BF9AAE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9F9E0B1722108F3000BF9AAE /* Artistmatche.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artistmatche.swift; sourceTree = "<group>"; };
 		9F9E0B192210900600BF9AAE /* Topalbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topalbum.swift; sourceTree = "<group>"; };
-		9F9E0B1B2210901100BF9AAE /* AlbumName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumName.swift; sourceTree = "<group>"; };
 		9F9E0B1D2210901D00BF9AAE /* AlbumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImage.swift; sourceTree = "<group>"; };
 		9F9E0B1F2210906C00BF9AAE /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		9F9E0B212210908100BF9AAE /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		9FB166282209F45700240114 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
-		9FB1662E220ACBF300240114 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		9FB1662E220ACBF300240114 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		9FB16630220ACD5400240114 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		9FB16632220ACE0C00240114 /* Albums +CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Albums +CoreDataClass.swift"; sourceTree = "<group>"; };
 		9FB16634220ACE6500240114 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -75,7 +72,10 @@
 		9FB16639220ACF6300240114 /* SaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		9FB1663B220ACFA700240114 /* AlbumDataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataStructure.swift; sourceTree = "<group>"; };
 		9FB1663D220AEA0B00240114 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		9FF631C6221A93AB00C037AD /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		9FF631C8221C354100C037AD /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		9FF631CA221C35AD00C037AD /* Albums.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Albums.storyboard; sourceTree = "<group>"; };
+		9FF631CC221C35E900C037AD /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		9FF631CE221C456200C037AD /* AlbumName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumName.swift; sourceTree = "<group>"; };
 		9FFB361222040EC0001F9A4D /* Last-FM Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Last-FM Albums.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FFB361522040EC0001F9A4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -91,20 +91,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BCDC8B2970F2117403119E /* Pods_Last_FM_Albums.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5CF10FC715ED49D19E43E601 /* Pods */ = {
+		9F58AD47221DE22400DF10C8 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
-				8DF8C67C3B8517CE3AEE7048 /* Pods-Last-FM Albums.debug.xcconfig */,
-				4CFD097473DC26A322296232 /* Pods-Last-FM Albums.release.xcconfig */,
+				9FB1663D220AEA0B00240114 /* AlbumCell.swift */,
+				9FB16630220ACD5400240114 /* AlbumsViewController.swift */,
+				9FF631CA221C35AD00C037AD /* Albums.storyboard */,
 			);
-			path = Pods;
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		9F58AD48221DE23000DF10C8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9F7D84F7220B713E00FEC5CF /* DetailViewController.swift */,
+				9FF631CC221C35E900C037AD /* Detail.storyboard */,
+				9F9E0B09220F5B5500BF9AAE /* StoredALbumsCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9F58AD49221DE26D00DF10C8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */,
+				9FFB361922040EC0001F9A4D /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9F58AD4A221DE27600DF10C8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9FB166282209F45700240114 /* ArtistCell.swift */,
+				9F192C462204CEFD001A00D6 /* SearchViewController.swift */,
+				9FF631C8221C354100C037AD /* Search.storyboard */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		9F7D84F4220B465800FEC5CF /* Models */ = {
@@ -117,7 +146,7 @@
 				9F9E0B1522108EF700BF9AAE /* Image.swift */,
 				9F562B6E220AF0FB0084AA32 /* SearchAlbumAPIModel.swift */,
 				9F9E0B192210900600BF9AAE /* Topalbum.swift */,
-				9F9E0B1B2210901100BF9AAE /* AlbumName.swift */,
+				9FF631CE221C456200C037AD /* AlbumName.swift */,
 				9F9E0B1D2210901D00BF9AAE /* AlbumImage.swift */,
 				9F7D84F1220B460000FEC5CF /* SearchAlbumDetailsAPIModel.swift */,
 				9F9E0B1F2210906C00BF9AAE /* Album.swift */,
@@ -126,20 +155,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9FB166272209F43900240114 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9FB166282209F45700240114 /* ArtistCell.swift */,
-				9FB1663D220AEA0B00240114 /* AlbumCell.swift */,
-				9F9E0B09220F5B5500BF9AAE /* StoredALbumsCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9FB1662D220ACBAC00240114 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				9FB1662E220ACBF300240114 /* Search.swift */,
+				9FB1662E220ACBF300240114 /* Network.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -147,7 +166,6 @@
 		9FB16638220ACF4400240114 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9FF631C6221A93AB00C037AD /* AlertController.swift */,
 				9FB16639220ACF6300240114 /* SaveData.swift */,
 			);
 			path = Service;
@@ -158,8 +176,6 @@
 			children = (
 				9FFB361422040EC0001F9A4D /* Last-FM Albums */,
 				9FFB361322040EC0001F9A4D /* Products */,
-				5CF10FC715ED49D19E43E601 /* Pods */,
-				A902A8E90EDFBCE2BB5EBB48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,39 +191,20 @@
 			isa = PBXGroup;
 			children = (
 				9FFB361522040EC0001F9A4D /* AppDelegate.swift */,
-				9FFB362C220413C7001F9A4D /* Data */,
+				9F58AD47221DE22400DF10C8 /* Albums */,
+				9FFB362C220413C7001F9A4D /* CoreData */,
+				9F58AD48221DE23000DF10C8 /* Detail */,
+				9F58AD49221DE26D00DF10C8 /* Main */,
 				9F7D84F4220B465800FEC5CF /* Models */,
 				9FB1662D220ACBAC00240114 /* Networking */,
+				9F58AD4A221DE27600DF10C8 /* Search */,
 				9FB16638220ACF4400240114 /* Service */,
-				9FFB362B22041394001F9A4D /* Storyboards */,
-				9FB166272209F43900240114 /* View */,
-				9FFB362A220412E7001F9A4D /* ViewControllers */,
 				9FFB362E2204140A001F9A4D /* Info */,
 			);
 			path = "Last-FM Albums";
 			sourceTree = "<group>";
 		};
-		9FFB362A220412E7001F9A4D /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				9FB16630220ACD5400240114 /* AlbumsViewController.swift */,
-				9F7D84F7220B713E00FEC5CF /* DetailViewController.swift */,
-				9FFB361722040EC0001F9A4D /* MainScreenViewController.swift */,
-				9F192C462204CEFD001A00D6 /* SearchViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		9FFB362B22041394001F9A4D /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				9FFB362122040EC2001F9A4D /* LaunchScreen.storyboard */,
-				9FFB361922040EC0001F9A4D /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		9FFB362C220413C7001F9A4D /* Data */ = {
+		9FFB362C220413C7001F9A4D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				9FFB361C22040EC0001F9A4D /* DataModel.xcdatamodeld */,
@@ -219,24 +216,17 @@
 				9F9E0B0D22106EB100BF9AAE /* Tracks +CoreDataClass.swift */,
 				9F9E0B0F22106EDD00BF9AAE /* Tracks +CoreDataProperties.swift */,
 			);
-			path = Data;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		9FFB362E2204140A001F9A4D /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				9FFB362122040EC2001F9A4D /* LaunchScreen.storyboard */,
 				9FFB361F22040EC2001F9A4D /* Assets.xcassets */,
 				9FFB362422040EC2001F9A4D /* Info.plist */,
 			);
 			name = Info;
-			sourceTree = "<group>";
-		};
-		A902A8E90EDFBCE2BB5EBB48 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				150F955B4320F1E3395E7DB9 /* Pods_Last_FM_Albums.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,12 +236,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FFB362722040EC2001F9A4D /* Build configuration list for PBXNativeTarget "Last-FM Albums" */;
 			buildPhases = (
-				BF674BD0593EBF55D286D917 /* [CP] Check Pods Manifest.lock */,
-				9FB1662A220A3CE600240114 /* ShellScript */,
 				9FFB360E22040EC0001F9A4D /* Sources */,
 				9FFB360F22040EC0001F9A4D /* Frameworks */,
 				9FFB361022040EC0001F9A4D /* Resources */,
-				83608C46BDF4D0F4E41E0425 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,82 +288,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FFB362322040EC2001F9A4D /* LaunchScreen.storyboard in Resources */,
+				9FF631CB221C35AD00C037AD /* Albums.storyboard in Resources */,
 				9FFB362022040EC2001F9A4D /* Assets.xcassets in Resources */,
+				9FF631C9221C354100C037AD /* Search.storyboard in Resources */,
 				9FFB361B22040EC0001F9A4D /* Main.storyboard in Resources */,
+				9FF631CD221C35E900C037AD /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		83608C46BDF4D0F4E41E0425 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Last-FM Albums/Pods-Last-FM Albums-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Last-FM Albums/Pods-Last-FM Albums-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FB1662A220A3CE600240114 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		BF674BD0593EBF55D286D917 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Last-FM Albums-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9FFB360E22040EC0001F9A4D /* Sources */ = {
@@ -386,21 +306,20 @@
 				9FFB361822040EC0001F9A4D /* MainScreenViewController.swift in Sources */,
 				9F9E0B1622108EF700BF9AAE /* Image.swift in Sources */,
 				9F9E0B202210906C00BF9AAE /* Album.swift in Sources */,
+				9FF631CF221C456200C037AD /* AlbumName.swift in Sources */,
 				9FB16633220ACE0C00240114 /* Albums +CoreDataClass.swift in Sources */,
 				9FB1663A220ACF6300240114 /* SaveData.swift in Sources */,
 				9F192C49220503D2001A00D6 /* SearchArtistAPIModel.swift in Sources */,
 				9F9E0B0A220F5B5500BF9AAE /* StoredALbumsCell.swift in Sources */,
 				9FB16631220ACD5400240114 /* AlbumsViewController.swift in Sources */,
 				9F9E0B1022106EDD00BF9AAE /* Tracks +CoreDataProperties.swift in Sources */,
-				9FF631C7221A93AB00C037AD /* AlertController.swift in Sources */,
 				9FB166292209F45700240114 /* ArtistCell.swift in Sources */,
-				9F9E0B1C2210901100BF9AAE /* AlbumName.swift in Sources */,
 				9F9E0B222210908100BF9AAE /* Track.swift in Sources */,
 				9F9E0B1822108F3000BF9AAE /* Artistmatche.swift in Sources */,
 				9F9E0B1E2210901D00BF9AAE /* AlbumImage.swift in Sources */,
 				9F562B6F220AF0FB0084AA32 /* SearchAlbumAPIModel.swift in Sources */,
 				9F9E0B1A2210900600BF9AAE /* Topalbum.swift in Sources */,
-				9FB1662F220ACBF300240114 /* Search.swift in Sources */,
+				9FB1662F220ACBF300240114 /* Network.swift in Sources */,
 				9F9E0B1222108E8E00BF9AAE /* SearchResults.swift in Sources */,
 				9F9E0B0C22106B9F00BF9AAE /* TracksDataStructure.swift in Sources */,
 				9F7D84F8220B713E00FEC5CF /* DetailViewController.swift in Sources */,
@@ -557,7 +476,6 @@
 		};
 		9FFB362822040EC2001F9A4D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DF8C67C3B8517CE3AEE7048 /* Pods-Last-FM Albums.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -577,7 +495,6 @@
 		};
 		9FFB362922040EC2001F9A4D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CFD097473DC26A322296232 /* Pods-Last-FM Albums.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

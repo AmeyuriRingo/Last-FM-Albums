@@ -7,34 +7,17 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Topalbum: NSObject, NSCoding, Mappable {
+class Topalbum: Codable {
     
-    var album: [AlbumName]?
+    let album: [AlbumName]?
     
-    class func newInstance(map: Map) -> Mappable? {
+    enum CodingKeys: String, CodingKey {
         
-        return Topalbum()
+        case album = "album"
     }
-    
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
-        album <- map["album"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
+    init(album: [AlbumName]?) {
         
-        album = aDecoder.decodeObject(forKey: "album") as? [AlbumName]
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if album != nil {
-            aCoder.encode(album, forKey: "album")
-        }
+        self.album = album
     }
 }

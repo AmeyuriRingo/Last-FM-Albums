@@ -12,6 +12,11 @@ class SearchArtistAPIModel: Codable {
     
     let results: SearchResults?
     
+    enum CodingKeys: String, CodingKey {
+        
+        case results
+    }
+    
     init(results: SearchResults?) {
         
         self.results = results

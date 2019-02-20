@@ -7,51 +7,22 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Track: NSObject, NSCoding, Mappable {
+class Track: Codable {
     
-    var name: String?
-    var track: [Track]?
-    var duration: String?
+    let duration: String?
+    let name: String?
+    let track: [Track]?
     
-    class func newInstance(map: Map) -> Mappable? {
-        
-        return Track()
+    enum CodingKeys: String, CodingKey {
+        case duration = "duration"
+        case name = "name"
+        case track = "track"
     }
-    required init?(map: Map) {}
-    
-    private override init() {}
-    
-    func mapping(map: Map) {
+    init(duration: String?, name: String?, track: [Track]?) {
         
-        name <- map["name"]
-        track <- map["track"]
-        duration <- map["duration"]
-    }
-    
-    @objc required init(coder aDecoder: NSCoder) {
-        
-        name = aDecoder.decodeObject(forKey: "name") as? String
-        track = aDecoder.decodeObject(forKey: "track") as? [Track]
-        duration = aDecoder.decodeObject(forKey: "duration") as? String
-    }
-    
-    @objc func encode(with aCoder: NSCoder) {
-        
-        if name != nil {
-            
-            aCoder.encode(name, forKey: "name")
-        }
-        
-        if track != nil {
-            
-            aCoder.encode(track, forKey: "track")
-        }
-        
-        if duration != nil {
-            
-            aCoder.encode(duration, forKey: "duration")
-        }
+        self.duration = duration
+        self.name = name
+        self.track = track
     }
 }

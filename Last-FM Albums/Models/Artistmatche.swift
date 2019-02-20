@@ -12,6 +12,10 @@ class ArtistMatches: Codable {
     
     let artist: [Artist]?
     
+    enum CodingKeys: String, CodingKey {
+     
+        case artist = "artist"
+    }
     init(artist: [Artist]?) {
         
         self.artist = artist
