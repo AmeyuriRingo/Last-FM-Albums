@@ -7,7 +7,7 @@
 ////
 //
 import Foundation
-
+//один метод через generic - переиспользование кода
 protocol SearchArtistDelegate: class {
     
     func loadDataCompleted(artistList: SearchArtistAPIModel)
@@ -63,7 +63,7 @@ class Network {
             task.resume()
         }
     }
-    
+    //completionHandler
     func artistsAlbums(nameOfArtist: String) {
         
         let urlString = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=\(nameOfArtist)&api_key=bad5acca27008a09709ccb2c0258003b&format=json"

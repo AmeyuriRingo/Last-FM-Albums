@@ -27,6 +27,7 @@ class MainScreenViewController: UICollectionViewController {
         
         setDataToVC()
     }
+    
     func setDataToVC() {
         //fetching stored data to collectionView
         collectionData = saveData.fetchDataFromAlbumsDB()
@@ -54,10 +55,12 @@ extension MainScreenViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? StoredALbumsCell else { return UICollectionViewCell()}
         //setting stored data to CollectionView
         if collectionData.count == 0 {
+            
             cell.storedAlbumImage.image = UIImage(named: "Placeholder image")
             cell.storedAlbumName.text = "Here will be artist album"
             cell.storedAlbumArtist.text = "Here will be artist name"
         } else {
+            
             cell.storedAlbumImage.image = collectionData[indexPath.row].image
             cell.storedAlbumName.text = collectionData[indexPath.row].name
             cell.storedAlbumArtist.text = collectionData[indexPath.row].artist

@@ -66,7 +66,7 @@ extension AlbumsViewController: ArtistAlbumsDelegate {
         for existingName in album {
             
             if existingName.name == "(null)" {
-                
+                //enumerated у альбома (содержит элемент и его индекс)
                 album.remove(at: i)
                 i -= 1
             }

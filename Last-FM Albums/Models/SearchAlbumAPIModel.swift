@@ -10,13 +10,13 @@ import Foundation
 
 class SearchAlbumAPIModel: Codable {
     
-    let topalbums: Topalbum?
+    let topalbums: TopAlbum?
     
     enum CodingKeys: String, CodingKey {
         
         case topalbums
     }
-    init(topalbums: Topalbum?) {
+    init(topalbums: TopAlbum?) {
         
         self.topalbums = topalbums
     }

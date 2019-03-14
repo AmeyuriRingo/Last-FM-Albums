@@ -16,11 +16,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var artist: UILabel!
     @IBOutlet weak var trackList: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tracksLanel: UILabel!
+    @IBOutlet weak var stateButton: UIBarButtonItem!
     
     private var saveData = SaveData()
     private var data: [AlbumDataStructure] = []
     private let network = Network()
     private var imageString: String?
+    private var album: [Albums] = []
     
     var albumsName: String?
     var artistsName: String?
@@ -30,7 +33,29 @@ class DetailViewController: UIViewController {
         //get all detail about album and present on view
         setDataToVC()
         getDetailInfo()
+        checkButtonState()
         network.albumsDetailDelegate = self
+    }
+    
+    func checkButtonState() {
+        
+        guard let name = albumsName else { return }
+        
+        let context = CoreDataManager.instance.managedObjectContext
+        let fetchRequest = NSFetchRequest<Albums>(entityName: "Albums")
+        if let result = try? context.fetch(fetchRequest) {
+            if result.isEmpty {
+                
+                stateButton.title = "Save"
+            } else {
+                
+                stateButton.title = "Delete"
+                for object in result {
+                    
+                    album.append(object)
+                }
+            }
+        }
     }
     
     func getDetailInfo() {
@@ -42,49 +67,26 @@ class DetailViewController: UIViewController {
         network.albumDetails(nameOfArtist: nameForRequest, nameOfAlbum: albumForRequest)
         
     }
+    
     func setDataToVC() {
         
         data = saveData.fetchDataFromAlbumsDB()
     }
     
     @IBAction func saveToDB(_ sender: Any) {
-        //save detail info about album to DB
-        guard let artist = artist.text, let image = albumImage.image, let name = albumsName, let tracks = trackList.text else { return }
-        self.saveData.localStorageSaveAlbums(artist: artist, image: image, name: name)
-        self.saveData.localStorageSaveTracks(name: tracks)
-        
+        //save and delete detail info about album to DB
+        if album.isEmpty {
+            guard let artist = artist.text, let image = albumImage.image, let name = albumsName, let tracks = trackList.text else { return }
+            self.saveData.localStorageSaveAlbums(artist: artist, image: image, name: name)
+            self.saveData.localStorageSaveTracks(name: tracks)
+            stateButton.title = "Delete"
+        } else {
+            
+            CoreDataManager.instance.deleteObject(album[0])
+            CoreDataManager.instance.saveContext()
+            stateButton.title = "Save"
+        }
     }
-    
-    @IBAction func deleteFromDB(_ sender: Any) {
-        
-        //guard let artist = artist.text, let image = albumImage.image, let name = albumsName, let tracks = trackList.text else { return }
-        //        let albumObjc = saveData.structureToObject(artist: artist, image: image, name: name)
-        //        CoreDataManager.instance.deleteObject(albumObjc)
-        
-        //        let context = CoreDataManager.instance.managedObjectContext
-        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Albums")
-        //        if let result = try? context.fetch(fetchRequest) {
-        //            for object in result {
-        //                context.delete(object)
-        //            }
-        //        }
-        
-        //        let context = CoreDataManager.instance.persistentContainer.viewContext
-        //        let newAlbum = NSEntityDescription.insertNewObject(forEntityName: "Albums", into: context)
-        //        newAlbum.setValue(artist, forKey: "artist")
-        //        newAlbum.setValue(image, forKey: "image")
-        //        newAlbum.setValue(name, forKey: "name")
-        //context.delete(albumObjc)
-        //        CoreDataManager.instance.saveContext()
-        
-        //        do {
-        //
-        //        try context.save()
-        //        } catch {
-        //            print("Error")
-        //        }
-    }
-    
 }
 
 extension DetailViewController: AlbumsDetailDelegate {

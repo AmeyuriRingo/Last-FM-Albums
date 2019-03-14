@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Topalbum: Codable {
+class TopAlbum: Codable {
     
     let album: [AlbumName]?
     

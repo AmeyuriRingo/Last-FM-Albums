@@ -15,12 +15,6 @@ class Album: Codable {
     let name: String?
     let tracks: Track?
     
-    enum CodingKeys: String, CodingKey {
-        case artist = "artist"
-        case image = "image"
-        case name = "name"
-        case tracks
-    }
     init(artist: String?, image: [Image]?, name: String?, tracks: Track?) {
         
         self.artist = artist
